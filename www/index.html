@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/ControladorCalc.js">
+
+    </script>
+  </head>
+  <body ng-app="starter" ng-controller="ControladorCalc">
+
+    <ion-pane>
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">Calculadora</h1>
+      </ion-header-bar>
+      <ion-content>
+
+        <div class="row">
+          <div class="col display">{{visor}}</div>
+        </div>
+
+        <div class="row row-center">
+          <div class="col">
+            <button class="button"  ng-click="apagaNumero()"><</button>
+          </div>
+          <div class="col">
+            <button class="button button-assertive" ng-click="apagar()">C</button>
+          </div>
+          <div class="col">
+            <button class="button" ng-click="raizQuadrada()">sqrt</button>
+          </div>
+          <div class="col">
+            <button class="button">%</button>
+          </div>
+          <div class="col">
+            <button class="button" ng-click="operacao('/')">/</button>
+          </div>
+        </div>
+
+        <div class="row row-center">
+          <div class="col">
+            <button class="button"  ng-click="calcularSeno()">sin</button>
+          </div>
+          <div class="col">
+            <button class="button button-positive" ng-click="numClicado(7)">7</button>
+          </div>
+          <div class="col">
+            <button class="button button-positive" ng-click="numClicado(8)">8</button>
+          </div>
+          <div class="col">
+            <button class="button button-positive" ng-click="numClicado(9)">9</button>
+          </div>
+          <div class="col">
+            <button class="button" ng-click="operacao('*')">*</button>
+          </div>
+        </div>
+
+        <div class="row row-center">
+          <div class="col">
+            <button class="button"  ng-click="calcularCosseno()">cos</button>
+          </div>
+          <div class="col">
+            <button class="button button-positive" ng-click="numClicado(4)">4</button>
+          </div>
+          <div class="col">
+            <button class="button button-positive" ng-click="numClicado(5)">5</button>
+          </div>
+          <div class="col">
+            <button class="button button-positive" ng-click="numClicado(6)">6</button>
+          </div>
+          <div class="col">
+            <button class="button" ng-click="operacao('-')">-</button>
+          </div>
+        </div>
+
+        <div class="row row-center">
+          <div class="col">
+            <button class="button" ng-click="pi()">pi</button>
+          </div>
+          <div class="col">
+            <button class="button button-positive" ng-click="numClicado(1)">1</button>
+          </div>
+          <div class="col">
+            <button class="button button-positive" ng-click="numClicado(2)">2</button>
+          </div>
+          <div class="col">
+            <button class="button button-positive" ng-click="numClicado(3)">3</button>
+          </div>
+          <div class="col">
+            <button class="button" ng-click="operacao('+')">+</button>
+          </div>
+        </div>
+
+        <div class="row row-center">
+          <div class="col">
+            <button class="button">+/-</button>
+          </div>
+          <div class="col">
+            <button class="button button-positive" ng-click="numClicado(0)">0</button>
+          </div>
+          <div class="col">
+            <button class="button" ng-click="numClicado('.')">.</button>
+          </div>
+          <div class="col">
+            <button class="button" ng-click="resultado()">=</button>
+          </div>
+        </div>
+
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
