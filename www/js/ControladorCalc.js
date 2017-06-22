@@ -64,6 +64,9 @@ angular.module('starter')
           $scope.visor = num / $scope.visor;
         };
       break;
+      case '%':
+          $scope.visor = ($scope.visor / 100) * num;
+      break;
     }
   }
 
@@ -85,10 +88,6 @@ angular.module('starter')
 
   $scope.mudarSinal = function(){
     $scope.visor = $scope.visor * (-1);
-  }
-
-  $scope.porcentagem = function(){
-    $scope.visor = ($scope.visor / 100) * num;
   }
 
 })
