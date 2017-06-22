@@ -82,23 +82,35 @@ angular.module('starter')
   }
 
   $scope.raizQuadrada = function(){
+    valor_anterior = $scope.visor;
     $scope.visor = Math.sqrt($scope.visor);
     arrayNum = [];
+    historic = 'sqrt (' + valor_anterior + ')' + '=' + $scope.visor;
+    $scope.historico = historic;
   }
 
   $scope.calcularSeno = function(){
+    valor_anterior = $scope.visor;
     $scope.visor = Math.sin($scope.visor);
     arrayNum = [];
+    historic = 'sin (' + valor_anterior + ')' + '=' + $scope.visor;
+    $scope.historico = historic;
   }
 
   $scope.calcularCosseno = function(){
+    valor_anterior = $scope.visor;
     $scope.visor = Math.cos($scope.visor);
     arrayNum = [];
+    historic = 'cos (' + valor_anterior + ')' + '=' + $scope.visor;
+    $scope.historico = historic;
   }
 
   $scope.pi = function(){
+    valor_anterior = $scope.visor;
     $scope.visor *= Math.PI;
     arrayNum = [];
+    historic = 'pi (' + valor_anterior + ')' + '=' + $scope.visor;
+    $scope.historico = historic;
   }
 
   $scope.mudarSinal = function(){
