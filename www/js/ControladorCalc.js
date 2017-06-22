@@ -83,18 +83,22 @@ angular.module('starter')
 
   $scope.raizQuadrada = function(){
     $scope.visor = Math.sqrt($scope.visor);
+    arrayNum = [];
   }
 
   $scope.calcularSeno = function(){
     $scope.visor = Math.sin($scope.visor);
+    arrayNum = [];
   }
 
   $scope.calcularCosseno = function(){
     $scope.visor = Math.cos($scope.visor);
+    arrayNum = [];
   }
 
   $scope.pi = function(){
     $scope.visor *= Math.PI;
+    arrayNum = [];
   }
 
   $scope.mudarSinal = function(){
