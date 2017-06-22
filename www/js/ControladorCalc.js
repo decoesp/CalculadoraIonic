@@ -83,6 +83,8 @@ angular.module('starter')
     $scope.visor *= Math.PI;
   }
 
-
+  $scope.mudarSinal = function(){
+    $scope.visor = $scope.visor * (-1);
+  }
 
 })
