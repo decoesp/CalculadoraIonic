@@ -2,7 +2,7 @@ angular.module('starter')
 .controller('ControladorCalc', function($scope){
 
   $scope.visor = 0;
-  $scope.historico = 'espaco para os registros';
+  $scope.historico = '';
   var arrayNum = [];
   var num = 0;
   var valor_anterior = 0;
