@@ -87,4 +87,8 @@ angular.module('starter')
     $scope.visor = $scope.visor * (-1);
   }
 
+  $scope.porcentagem = function(){
+    $scope.visor = ($scope.visor / 100) * num;
+  }
+
 })
