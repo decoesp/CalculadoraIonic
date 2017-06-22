@@ -7,6 +7,7 @@ angular.module('starter')
   var num = 0;
   var valor_anterior = 0;
   var oper = '';
+  var historico ='';
 
   $scope.apagar = function(){
     $scope.visor = 0;
@@ -40,34 +41,44 @@ angular.module('starter')
   $scope.resultado = function(){
     switch(oper){
       case '+':
+          valor_anterior = $scope.visor;
           $scope.visor += num;
+          historic = num+'+'+valor_anterior+' = '+$scope.visor;
       break;
       case '-':
         if(valor_anterior!= 0){
           $scope.visor = $scope.visor - valor_anterior;
+          historic = $scope.visor+'-'+valor_anterior+' = '+$scope.visor;
         }else{
           valor_anterior = $scope.visor;
           $scope.visor = num - $scope.visor;
+          historic = num+'-'+valor_anterior+' = '+$scope.visor;
         }
       break;
       case '*':
           $scope.visor *= num;
+          historic = $scope.visor+'*'+num+' = '+$scope.visor;
       break;
       case '/':
          if(valor_anterior!= 0){
           $scope.visor = $scope.visor / valor_anterior;
+          historic = $scope.visor+'/'+valor_anterior+' = '+$scope.visor;
         }else{
           if($scope.visor == 0){
             break;
           }
           valor_anterior = $scope.visor;
           $scope.visor = num / $scope.visor;
+          historic = num+'/'+valor_anterior+' = '+$scope.visor;
         };
       break;
       case '%':
-          $scope.visor = ($scope.visor / 100) * num;
+        valor_anterior = $scope.visor;
+        $scope.visor = ($scope.visor / 100) * num;
+        historic = num+'% de '+valor_anterior+' = '+$scope.visor;
       break;
     }
+     $scope.historico = historic;
   }
 
   $scope.raizQuadrada = function(){
