@@ -5,10 +5,12 @@ angular.module('starter')
   $scope.historico = 'espaco para os registros';
   var arrayNum = [];
   var num = 0;
+  var valor_anterior = 0;
   var oper = '';
 
   $scope.apagar = function(){
     $scope.visor = 0;
+    valor_anterior = 0;
     oper = '';
     arrayNum = [];
   }
@@ -21,6 +23,9 @@ angular.module('starter')
   $scope.numClicado = function(n){
     arrayNum.push(n);
     $scope.visor = arrayNum.join('')*1;
+    if(isNaN($scope.visor)){
+      $scope.visor = 0
+    }
   }
 
   $scope.operacao = function(op){
@@ -33,17 +38,32 @@ angular.module('starter')
   }
 
   $scope.resultado = function(){
-    if(oper === '+'){
-      $scope.visor += num;
-    }
-    else if(oper === '-'){
-      $scope.visor = num - $scope.visor; // não continua a subtração ao apertar o igual duas vezes
-    }
-    else if(oper === '*'){
-      $scope.visor *= num;
-    }
-    else if(oper === '/'){
-      $scope.visor = num / $scope.visor; // mesmo bug da subtração
+    switch(oper){
+      case '+':
+          $scope.visor += num;
+      break;
+      case '-':
+        if(valor_anterior!= 0){
+          $scope.visor = $scope.visor - valor_anterior;
+        }else{
+          valor_anterior = $scope.visor;
+          $scope.visor = num - $scope.visor;
+        }
+      break;
+      case '*':
+          $scope.visor *= num;
+      break;
+      case '/':
+         if(valor_anterior!= 0){
+          $scope.visor = $scope.visor / valor_anterior;
+        }else{
+          if($scope.visor == 0){
+            break;
+          }
+          valor_anterior = $scope.visor;
+          $scope.visor = num / $scope.visor;
+        };
+      break;
     }
   }
 
@@ -62,6 +82,7 @@ angular.module('starter')
   $scope.pi = function(){
     $scope.visor *= Math.PI;
   }
+
 
 
 })
