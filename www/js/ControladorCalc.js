@@ -2,6 +2,7 @@ angular.module('starter')
 .controller('ControladorCalc', function($scope){
 
   $scope.visor = 0;
+  $scope.historico = 'espaco para os registros';
   var arrayNum = [];
   var num = 0;
   var oper = '';
@@ -10,6 +11,11 @@ angular.module('starter')
     $scope.visor = 0;
     oper = '';
     arrayNum = [];
+  }
+
+  $scope.apagarNum =function(){
+    arrayNum.pop();
+    $scope.visor = arrayNum.join('')*1;
   }
 
   $scope.numClicado = function(n){
@@ -56,5 +62,6 @@ angular.module('starter')
   $scope.pi = function(){
     $scope.visor *= Math.PI;
   }
+
 
 })
